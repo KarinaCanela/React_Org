@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './componentes/header/Header.js';
+import Formulario from './componentes/formulario/Formulario.js';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
       {/* { Header() }
       <Header> </Header> */}
       <Header/>
+      <Formulario/>
       
     </div>
   );
