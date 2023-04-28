@@ -1,14 +1,24 @@
+import "./ListaOpciones.css"
 const ListaOpciones = () => {
-    return <div>
+
+    // Metodo map -> arreglo.map( (equipo, index) => {
+    //   return <option> </option>
+    // })
+    const equipos = [
+        "Programación",
+        "Front End",
+        "Data Science",
+        "DevOps",
+        "UX y Diseño",
+        "Móvil",
+        "Innovación y Gestión"
+    ]
+    return <div className="lista-opciones">
         <label>Equipos</label>
         <select>
-            <option>Programación</option>
-            <option>Front End</option>
-            <option>Data Science</option>
-            <option>DevOps</option>
-            <option>UX y Diseño</option>
-            <option>Móvil</option>
-            <option>Innovación y Gestión</option>
+            { equipos.map( (equipo, index) => {
+                return <option key={index}>{equipo}</option>
+            } ) }
         </select>
     </div>
 }
