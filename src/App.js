@@ -8,7 +8,43 @@ import Footer from './componentes/Footer';
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false)
-  const [colaboradores, actualizarColaboradores] = useState([])
+  const [colaboradores, actualizarColaboradores] = useState([{
+    equipo: "Front End",
+    foto: "https://github.com/KarinaCanela.png",
+    nombre: "Karina Canela",
+    puesto: "Desarrolladora"
+  },
+  {
+    equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/genesysaluralatam.png",
+    nombre: "Genesys Rondon",
+    puesto: "Desarrolladora de software e instructora"
+  },
+  {
+    equipo: "UX y Diseño",
+    foto: "https://github.com/Jeanmariealuralatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora de Alura Latam"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e instructor"
+  },
+  {
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev Fullstack"
+  },
+])
 
   //ternario --> condicion ? seMuestra : noSeMuestra
   //condicion && seMuestra
@@ -22,6 +58,11 @@ function App() {
     console.log("Nuevo Colaborador", colaborador)
     //Spread operator
     actualizarColaboradores([...colaboradores, colaborador])
+  }
+
+  //Eliminar colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar colaborador")
   }
 
 
@@ -79,7 +120,10 @@ function App() {
 
       {
         equipos.map( (equipo) => <Equipo datos={equipo} key={equipo.titulo}
-        colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo )}/> )
+        colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo )}
+        eliminarColaborador={eliminarColaborador}
+        /> 
+        )
       }
 
       <Footer/>

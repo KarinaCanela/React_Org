@@ -5,7 +5,7 @@ const Equipo = (props) => {
     //Destructuracion
     const { colorPrimario, colorSecundario, titulo } = props.datos
 
-    const { colaboradores } = props
+    const { colaboradores, eliminarColaborador } = props
     console.log(colaboradores.length > 0)
  
     const obj = {
@@ -24,7 +24,10 @@ const Equipo = (props) => {
                 {
                     colaboradores.map( (colaborador, index) => <Colaborador datos={colaborador}
                     key={index}
-                    colorPrimario={colorPrimario}/>)
+                    colorPrimario={colorPrimario}
+                    eliminarColaborador={eliminarColaborador}
+                    />
+                    )
                 }
             </div>
             </section>
