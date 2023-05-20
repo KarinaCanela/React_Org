@@ -1,10 +1,11 @@
 import "./Colaborador.css"
+import { AiFillDelete } from "react-icons/ai"
 
 const Colaborador = (props) => {
     const {nombre, puesto, foto, equipo} = props.datos
     const {colorPrimario,eliminarColaborador} = props
     return <div className="colaborador">
-        <span onClick={eliminarColaborador}>D</span>
+        <AiFillDelete className="eliminar" onClick={eliminarColaborador}/>
         <div className="encabezado" style={{backgroundColor: colorPrimario
         }}>
             <img src={foto} alt={nombre}/>
