@@ -1,7 +1,9 @@
 import "./boton.css"
 
 const Boton = (props) => {
-    return <button className="boton">{props.texto}</button>
+    console.log(props.texto)
+    return <button className="boton">{props.children}</button>
+
 }
 
 export default Boton
