@@ -8,48 +8,54 @@ import Equipo from './componentes/Equipo';
 import Footer from './componentes/Footer';
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(true)
+  const [mostrarFormulario, actualizarMostrar] = useState(false)
   const [colaboradores, actualizarColaboradores] = useState([{
     equipo: "Front End",
     foto: "https://github.com/KarinaCanela.png",
     nombre: "Karina Canela",
     puesto: "Desarrolladora",
-    id: uuid()
+    id: uuid(),
+    fav: true
   },
   {
     equipo: "Front End",
     foto: "https://github.com/harlandlohora.png",
     nombre: "Harland Lohora",
     puesto: "Instructor",
-    id: uuid()
+    id: uuid(),
+    fav: false
   },
   {
     equipo: "Programación",
     foto: "https://github.com/genesysaluralatam.png",
     nombre: "Genesys Rondon",
     puesto: "Desarrolladora de software e instructora",
-    id: uuid()
+    id: uuid(),
+    fav: false
   },
   {
     equipo: "UX y Diseño",
     foto: "https://github.com/Jeanmariealuralatam.png",
     nombre: "Jeanmarie Quijada",
     puesto: "Instructora de Alura Latam",
-    id: uuid()
+    id: uuid(),
+    fav: false
   },
   {
     equipo: "Programación",
     foto: "https://github.com/christianpva.png",
     nombre: "Christian Velasco",
     puesto: "Head de Alura e instructor",
-    id: uuid()
+    id: uuid(),
+    fav: true
   },
   {
     equipo: "Innovación y Gestión",
     foto: "https://github.com/JoseDarioGonzalezCha.png",
     nombre: "Jose Gonzalez",
     puesto: "Dev Fullstack",
-    id: uuid()
+    id: uuid(),
+    fav: false
   }
 ])
  
@@ -141,6 +147,17 @@ function App() {
     actualizarEquipos([...equipos, { ...nuevoEquipo, id:uuid() }])
   }
 
+  const like = (id) => {
+    console.log("like", id)
+    const colaboradoresActualizados = colaboradores.map((colaborador) => {
+      if (colaborador.id === id) {
+        colaborador.fav = !colaborador.fav
+      }
+      return colaborador
+    })
+    actualizarColaboradores(colaboradoresActualizados)
+  }
+
 
   return (
     <div>
@@ -161,6 +178,7 @@ function App() {
         colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo )}
         eliminarColaborador={eliminarColaborador}
         actualizarColor= {actualizarColor}
+        like={like}
         /> 
         )
       }
