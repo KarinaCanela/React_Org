@@ -8,7 +8,7 @@ import Equipo from './componentes/Equipo';
 import Footer from './componentes/Footer';
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(false)
+  const [mostrarFormulario, actualizarMostrar] = useState(true)
   const [colaboradores, actualizarColaboradores] = useState([{
     equipo: "Front End",
     foto: "https://github.com/KarinaCanela.png",
